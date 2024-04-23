@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form action="/login" method="post">
+        <label for="login">Login:</label><br>
+        <input type="text" id="login" name="login" required><br><br>
+        <label for="senha">Senha:</label><br>
+        <input type="password" id="senha" name="senha" required><br><br>
+        <input type="submit" value="Login">
+    </form>
+
+    {% if logged_in %}
+    <h1>Realizar Transação</h1>
+    
+    <!-- Formulários de transação aqui... -->
+    <form action="/realizar-transacao" method="post">
+        <label for="operacao">Escolha o tipo de transação:</label><br>
+        <select name="operacao" id="operacao" required>
+            <option value="saque">Saque</option>
+            <option value="deposito">Depósito</option>
+            <option value="cartao">Pagamento com Cartão</option>
+        </select><br><br>
+        <label for="id_usuario">ID/Login do Usuário:</label><br>
+        <input type="text" id="id_usuario" name="id_usuario" required><br><br>
+        <label for="valor">Valor:</label><br>
+        <input type="number" id="valor" name="valor" step="0.01" required><br><br>
+        <input type="submit" value="Realizar Transação">
+    </form>
+    {% endif %}
+</body>
+</html>
